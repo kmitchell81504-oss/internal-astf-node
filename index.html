@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ASTF Secure Access Portal</title>
+
+<style>
+body {
+    background-color: #0b0e11;
+    color: #b7c4ce;
+    font-family: Consolas, monospace;
+    margin: 0;
+}
+
+.topbar {
+    background-color: #141a21;
+    padding: 8px 20px;
+    font-size: 12px;
+    color: #6f8191;
+    border-bottom: 1px solid #1c2733;
+}
+
+.portal, .database {
+    max-width: 950px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #10151b;
+    border: 1px solid #1c2733;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+h1 {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #7f9db9;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 11px;
+    color: #5f7284;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #0b0e11;
+    border: 1px solid #1c2733;
+    color: #b7c4ce;
+}
+
+button {
+    background-color: #1c2733;
+    border: 1px solid #2a3949;
+    color: #7f9db9;
+    padding: 8px 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #243342;
+}
+
+.error {
+    color: #aa4d4d;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.section {
+    margin-bottom: 35px;
+}
+
+.section-title {
+    font-size: 13px;
+    color: #6f8191;
+    border-bottom: 1px solid #1c2733;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.field {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    padding: 5px 0;
+    font-size: 13px;
+}
+
+.label {
+    color: #506273;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #1c2733;
+    padding: 6px;
+}
+
+th {
+    background-color: #141a21;
+    color: #6f8191;
+    font-weight: normal;
+}
+
+.system-log {
+    font-size: 11px;
+    color: #4e6275;
+    margin-top: 30px;
+    border-top: 1px solid #1c2733;
+    padding-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.blink {
+    animation: blink 1.4s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.3; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+internal.astf.gov // Secure Intranet Node // Transparency Enforcement Division
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="portal">
+    <h1>ANTI-SECRECY TASKFORCE</h1>
+    <div class="subtitle">Secure Access Portal — Authorized Personnel Only</div>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="authenticate()">Access Database</button>
+    <div id="error" class="error"></div>
+</div>
+
+<!-- DATABASE -->
+<div id="database" class="database hidden">
+    <h1>OPERATIVE DATABASE RECORD</h1>
+    <div class="subtitle">Public Transparency Archive — Internal Node Access</div>
+
+    <!-- IDENTIFICATION -->
+    <div class="section">
+        <div class="section-title">I. SUBJECT IDENTIFICATION</div>
+        <div class="field"><div class="label">Full Name:</div><div>Ashlynn █████</div></div>
+        <div class="field"><div class="label">Callsign:</div><div>Mink</div></div>
+        <div class="field"><div class="label">DOB:</div><div>09/18/████</div></div>
+        <div class="field"><div class="label">Place of Birth:</div><div>British Columbia, Canada</div></div>
+        <div class="field"><div class="label">Current Residence:</div><div>Colorado, U.S.</div></div>
+        <div class="field"><div class="label">Height:</div><div>5'5" (165 cm)</div></div>
+        <div class="field"><div class="label">Weight:</div><div>120 lbs (54 kg)</div></div>
+        <div class="field"><div class="label">Dominant Hand:</div><div>Ambidextrous</div></div>
+        <div class="field"><div class="label">Distinguishing Marks:</div><div>Scar — Left Facial Plane</div></div>
+        <div class="field"><div class="label">Medical Flag:</div><div>Selective IgA Deficiency — Monitored</div></div>
+        <div class="field"><div class="label">Deployment Restriction:</div><div>High-Exposure Biological Zones — Conditional Approval Required</div></div>
+    </div>
+
+    <!-- OPERATIONAL -->
+    <div class="section">
+        <div class="section-title">II. OPERATIONAL DESIGNATION</div>
+        <div class="field"><div class="label">Primary Function:</div><div>Cyber Operations & Systems Exploitation</div></div>
+        <div class="field"><div class="label">Secondary Function:</div><div>Precision Firearms & CQ Engagement</div></div>
+        <div class="field"><div class="label">Threat Assessment:</div><div>Moderate</div></div>
+        <div class="field"><div class="label">Confirmed Lethal Engagements:</div><div>20+</div></div>
+        <div class="field"><div class="label">Long-Term Development Track:</div><div>Strategic Asset Cultivation Program</div></div>
+        <div class="field"><div class="label">Asset Classification:</div><div>Protected Operational Resource</div></div>
+        <div class="field"><div class="label">External Oversight:</div><div>Federal Review — Active</div></div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section">
+        <div class="section-title">III. SKILL INVENTORY</div>
+        <table>
+            <tr><th>Category</th><th>Rating</th></tr>
+            <tr><td>Tactical Awareness</td><td>B</td></tr>
+            <tr><td>Physical Endurance</td><td>B-</td></tr>
+            <tr><td>Firearms Proficiency</td><td>A-</td></tr>
+            <tr><td>Analytical Processing</td><td>A+</td></tr>
+            <tr><td>Operational Discretion</td><td>C+</td></tr>
+            <tr><td>Team Integration</td><td>B+</td></tr>
+        </table>
+    </div>
+
+    <!-- ACCESS LOG -->
+    <div class="section">
+        <div class="section-title">IV. ACCESS LOG (ABRIDGED)</div>
+        <div class="field"><div class="label">03/02/2026 17:04</div><div>Lt. Tomcat — Tier 2 Access</div></div>
+        <div class="field"><div class="label">03/02/2026 16:59</div><div>Federal Liaison Node — Tier 4 Review</div></div>
+        <div class="field"><div class="label">03/01/2026 22:18</div><div>Oversight Committee — Tier 5 Audit</div></div>
+        <div class="field"><div class="label">02/27/2026 03:12</div><div>Automated Behavioral Monitoring Sweep</div></div>
+    </div>
+
+    <!-- GOVERNMENT LIAISON -->
+    <div class="section">
+        <div class="section-title">V. GOVERNMENT LIAISON REVIEW</div>
+        <div class="field"><div class="label">Review Authority:</div><div>██████████ Division</div></div>
+        <div class="field"><div class="label">Mandate:</div><div>Interagency Oversight & Continuity Assessment</div></div>
+        <div class="field"><div class="label">Evaluation Summary:</div><div>[ SEALED — TIER 4 CLEARANCE REQUIRED ]</div></div>
+    </div>
+
+    <!-- TOMCAT ONLY -->
+    <div id="tomcatView" class="hidden">
+        <div class="section">
+            <div class="section-title">VI. FIELD COMMAND SUPPLEMENT — AUTHORIZED VIEW</div>
+            <div class="field"><div class="label">Stress Trigger Indicators:</div><div>Elevated silence; reduced verbal confirmation; fixation on single objective variable.</div></div>
+            <div class="field"><div class="label">Medical Advisory:</div><div>Monitor closely for infection risk post-engagement.</div></div>
+            <div class="field"><div class="label">Command Responsiveness:</div><div>Highest compliance rate observed under Lt. "Tomcat."</div></div>
+            <div class="field"><div class="label">Protective Directive:</div><div>Preserve asset viability during high-risk deployments.</div></div>
+        </div>
+    </div>
+
+    <div class="system-log">
+        Node Access Timestamp: <span id="timestamp"></span><br>
+        Clearance Level: <span id="clearanceLevel"></span><br>
+        Notice: Operational transparency does not equate to operational vulnerability.
+    </div>
+</div>
+
+<script>
+function authenticate() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if (user === "astf_admin" && pass === "m1nk_access") {
+        loadDatabase("standard");
+    } 
+    else if (user === "tomcat" && pass === "field_command") {
+        loadDatabase("tomcat");
+    } 
+    else {
+        document.getElementById("error").innerText =
+        "ACCESS DENIED — INVALID CREDENTIALS";
+    }
+}
+
+function loadDatabase(role) {
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("database").classList.remove("hidden");
+    document.getElementById("timestamp").innerText =
+        new Date().toLocaleString();
+
+    if (role === "tomcat") {
+        document.getElementById("tomcatView").classList.remove("hidden");
+        document.getElementById("clearanceLevel").innerText =
+        "Tier 3 — Field Command";
+    } else {
+        document.getElementById("clearanceLevel").innerText =
+        "Tier 1 — Internal";
+    }
+}
+</script>
+
+</body>
+</html>
